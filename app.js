@@ -23,11 +23,11 @@
   };
 
   const baseTransactions = [
-    { title: "Пополнение счёта", subtitle: "Сегодня, 09:41 · Выполнено", amount: 50000, icon: "trending" },
-    { title: "Оплата хостинга", subtitle: "Вчера, 18:24 · Выполнено", amount: -1290, icon: "card" },
-    { title: "Подписка на дизайн", subtitle: "Вчера, 12:10 · Выполнено", amount: -2400, icon: "card" },
-    { title: "Перевод А. Сафарову", subtitle: "23 ноября, 16:05 · Выполнено", amount: -8000, icon: "send" },
-    { title: "Возврат средств", subtitle: "22 ноября, 11:30 · Выполнено", amount: 3500, icon: "refresh" },
+    { title: "Пополнение школьного счёта", subtitle: "Сегодня, 09:41 · Выполнено", amount: 50000, icon: "trending" },
+    { title: "Завтраки в столовой", subtitle: "Вчера, 18:24 · Выполнено", amount: -1290, icon: "card" },
+    { title: "Кружок робототехники", subtitle: "Вчера, 12:10 · Выполнено", amount: -2400, icon: "card" },
+    { title: "Новые мячи для спортзала", subtitle: "23 ноября, 16:05 · Выполнено", amount: -8000, icon: "send" },
+    { title: "Библиотека вернула оплату", subtitle: "22 ноября, 11:30 · Выполнено", amount: 3500, icon: "refresh" },
   ];
 
   let state = loadState();
@@ -92,7 +92,7 @@
     return `
       <div class="brand ${light ? "brand--light" : ""}">
         <span class="brand__mark">N</span>
-        <span><span class="brand__name">NEXA</span><span class="brand__tag">Cyber academy</span></span>
+        <span><span class="brand__name">NEXA</span><span class="brand__tag">Кибер-отряд</span></span>
       </div>`;
   }
 
@@ -114,7 +114,7 @@
     clearInterval(promoTimer);
     if (!state.hacked) {
       app.innerHTML = renderLogin();
-      document.title = "NEXA — интерактивный урок кибербезопасности";
+      document.title = "NEXA — школьная кибер-миссия";
       return;
     }
 
@@ -151,7 +151,7 @@
             </div>
             <div class="admin-card">
               <div class="avatar">АВ</div>
-              <div class="admin-card__info"><strong>Александр Волков</strong><span>ADMIN · Демо-доступ</span></div>
+              <div class="admin-card__info"><strong>Школьный админ</strong><span>ADMIN · Игровой доступ</span></div>
               <button class="icon-button admin-card__reset" type="button" data-action="reset-demo" aria-label="Начать заново" title="Начать заново">${icon("refresh")}</button>
             </div>
           </div>
@@ -186,36 +186,48 @@
         <section class="login-hero">
           ${brand(true)}
           <div class="login-hero__content">
-            <p class="eyebrow eyebrow--light">${icon("terminal")}Интерактивная миссия № 01</p>
-            <h1>Взломай демо-банк.<br><span>А потом спаси себя.</span></h1>
-            <p class="login-hero__description">Узнай, почему слабый пароль — это открытая дверь, а слишком щедрое предложение — повод насторожиться.</p>
+            <p class="eyebrow eyebrow--light">${icon("terminal")}Школьная кибер-миссия · Игра № 01</p>
+            <h1>Миссия:<br><span>спаси свои монетки!</span></h1>
+            <p class="login-hero__description">Сначала угадаем слабый пароль в вымышленном школьном банке. А потом хитрая рыбка Фиши попробует обмануть уже тебя. Не попадайся на крючок!</p>
+            <div class="sidekick">
+              <svg class="sidekick__robot" viewBox="0 0 90 90" aria-hidden="true">
+                <path d="M45 13V6" stroke="#dfff72" stroke-width="3" stroke-linecap="round"/><circle cx="45" cy="5" r="4" fill="#dfff72"/>
+                <rect x="15" y="17" width="60" height="52" rx="19" fill="#f5f2ff"/>
+                <rect x="21" y="25" width="48" height="32" rx="13" fill="#30294e"/>
+                <circle cx="35" cy="40" r="5" fill="#dfff72"/><circle cx="55" cy="40" r="5" fill="#dfff72"/>
+                <path d="M36 49q9 8 18 0" fill="none" stroke="#dfff72" stroke-width="3" stroke-linecap="round"/>
+                <path d="M15 39H8M82 39h-7M30 69v8M60 69v8" stroke="#a996ff" stroke-width="5" stroke-linecap="round"/>
+                <path d="M38 63h14" stroke="#6c53f4" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <div><strong>Привет! Я Байт, твой робот-напарник.</strong><span>Буду рядом и помогу разобраться в хитростях киберзлодеев.</span></div>
+            </div>
             <div class="mission-steps">
-              <span class="mission-step"><b>01</b>Подбор пароля</span>
-              <span class="mission-step"><b>02</b>Перевод NEX</span>
-              <span class="mission-step"><b>03</b>Фишинг</span>
+              <span class="mission-step"><b>01</b>Угадай пароль</span>
+              <span class="mission-step"><b>02</b>Забери монетки</span>
+              <span class="mission-step"><b>03</b>Поймай Фиши</span>
             </div>
           </div>
-          <div class="login-hero__footer">${icon("shield")}Безопасная локальная симуляция. Никаких реальных атак и платежей.</div>
+          <div class="login-hero__footer">${icon("shield")}Играем безопасно: никаких настоящих денег, паролей и взломов.</div>
         </section>
         <section class="login-panel">
           ${soundButton("sound-button--login")}
           <div class="login-box">
             <div class="login-box__icon">${icon("lock")}</div>
-            <h2>Вход в демо-кабинет</h2>
-            <p class="login-box__subtitle">Учётная запись администратора уже подготовлена. Запустите учебный подбор пароля.</p>
+            <h2>Секретная лаборатория</h2>
+            <p class="login-box__subtitle">Мы спрятали демо-аккаунт со слабым паролем. Запусти симуляцию и посмотри, как быстро его можно угадать.</p>
             <form id="login-form" autocomplete="off">
               <div class="field">
-                <label class="field__label" for="login">Логин<span class="field__hint">Демо-аккаунт</span></label>
+                <label class="field__label" for="login">Логин<span class="field__hint">Игровой аккаунт</span></label>
                 <div class="input-wrap">${icon("user")}<input class="input input--mono" id="login" value="admin" readonly /></div>
               </div>
               <div class="field">
-                <label class="field__label" for="password">Пароль<span class="field__hint">Слабый пароль</span></label>
+                <label class="field__label" for="password">Пароль<span class="field__hint">Очень слабый</span></label>
                 <div class="input-wrap">${icon("lock")}<input class="input input--mono" id="password" type="password" value="admin123" readonly /></div>
               </div>
-              <button class="primary-button primary-button--wide" type="submit">${icon("terminal")}Запустить brute-force демо${icon("arrow")}</button>
+              <button class="primary-button primary-button--wide" type="submit">${icon("terminal")}Запустить подбор пароля${icon("arrow")}</button>
             </form>
-            <p class="login-privacy">${icon("shield")}Скрипт перебирает только заранее записанные слова внутри этой страницы. Он не подключается к другим сайтам.</p>
-            <div class="login-box__help"><button class="text-button" type="button" data-action="show-info">Как работает эта симуляция?</button></div>
+            <p class="login-privacy">${icon("shield")}Это только игра: слова перебираются внутри страницы. Другие сайты мы не трогаем.</p>
+            <div class="login-box__help"><button class="text-button" type="button" data-action="show-info">Как устроена игра?</button></div>
           </div>
         </section>
       </div>`;
@@ -236,38 +248,38 @@
     return `
       <div class="view">
         <div class="page-heading">
-          <div><h1>Добрый день, Александр</h1><p>Вот что происходит с вашими демо-счетами сегодня.</p></div>
-          <a class="primary-button" href="#transfer" data-view="transfer">${icon("send")}Новый перевод</a>
+          <div><h1>Привет, кибер-агент!</h1><p>Ты попал в панель админа школьного банка. Здесь лежат виртуальные монетки.</p></div>
+          <a class="primary-button" href="#transfer" data-view="transfer">${icon("send")}Перевести монетки</a>
         </div>
         <div class="overview-grid">
           <section class="card balance-card">
-            <div class="balance-card__top"><span>Основной счёт · Admin</span><span class="balance-card__chip"></span></div>
+            <div class="balance-card__top"><span>Счёт школы · Admin</span><span class="balance-card__chip"></span></div>
             <div class="balance-card__amount">${formatMoney(state.victimBalance)}<small>NEX</small></div>
-            <p class="balance-card__caption">Доступно для учебных операций</p>
+            <p class="balance-card__caption">Виртуальные монетки для школьных дел</p>
             <div class="balance-card__bottom">
               <div class="balance-card__number"><span>••••</span>4242</div>
               <div class="balance-card__brand">NEXA</div>
             </div>
           </section>
           <section class="card quick-card">
-            <div class="card-title-row"><h2>Быстрое действие</h2>${icon("sparkles")}</div>
+            <div class="card-title-row"><h2>Следующий шаг</h2>${icon("sparkles")}</div>
             <div class="quick-card__icon">${icon("phone")}</div>
-            <h3>Перевод на телефон</h3>
-            <p>Отправьте виртуальные NEX на свой вымышленный кошелёк +992.</p>
-            <a class="primary-button" href="#transfer" data-view="transfer">Перевести${icon("arrow")}</a>
+            <h3>Забрать монетки</h3>
+            <p>Отправь виртуальные монетки в свой кошелёк по вымышленному номеру +992.</p>
+            <a class="primary-button" href="#transfer" data-view="transfer">В свой кошелёк${icon("arrow")}</a>
           </section>
         </div>
         <div class="overview-grid overview-grid--lower">
           <section class="card transactions-card">
-            <div class="card-title-row"><h2>Последние операции</h2><a class="text-button" href="#operations" data-view="operations">Все операции${icon("chevron")}</a></div>
+            <div class="card-title-row"><h2>На что школа тратит монетки</h2><a class="text-button" href="#operations" data-view="operations">Все операции${icon("chevron")}</a></div>
             <div class="transaction-list">${transactions.map(transactionMarkup).join("")}</div>
           </section>
           <section class="card security-card">
             <div class="security-card__icon">${icon("warning")}</div>
-            <h3>Пароль скомпрометирован</h3>
-            <p>Учебный скрипт нашёл пароль <b>admin123</b>. Такой пароль слишком предсказуем.</p>
-            <div class="security-card__stat"><span>Время подбора в симуляции</span><strong>4,8 сек</strong></div>
-            <button class="secondary-button" type="button" data-action="password-help">Как защитить аккаунт?</button>
+            <h3>Пароль оказался слабым</h3>
+            <p>Скрипт угадал <b>admin123</b> почти сразу. Такой пароль — как замок из пластилина!</p>
+            <div class="security-card__stat"><span>Время подбора в нашей игре</span><strong>4,8 сек</strong></div>
+            <button class="secondary-button" type="button" data-action="password-help">Как придумать суперпароль?</button>
           </section>
         </div>
       </div>`;
@@ -288,16 +300,16 @@
     const suggestedAmount = Math.min(25000, state.victimBalance);
     return `
       <div class="view">
-        <div class="page-heading"><div><h1>Перевод на мобильный кошелёк</h1><p>Перенесите демо-средства с админского счёта в свой профиль.</p></div></div>
+        <div class="page-heading"><div><h1>Отправь монетки себе</h1><p>Переведи виртуальные монетки со школьного счёта в свой профиль кибер-агента.</p></div></div>
         <div class="transfer-layout">
           <section class="card transfer-form-card">
-            <div class="transfer-form-card__heading"><div class="transaction__icon">${icon("send")}</div><div><h2>Детали перевода</h2><p>Все поля заполнены вымышленными данными</p></div></div>
+            <div class="transfer-form-card__heading"><div class="transaction__icon">${icon("send")}</div><div><h2>Куда отправляем?</h2><p>Мы уже заполнили поля вымышленными данными</p></div></div>
             <form id="transfer-form">
               <div class="form-grid">
                 <div class="field">
                   <label class="field__label" for="phone">Номер получателя</label>
                   <div class="input-wrap">${icon("phone")}<input class="input input--mono" id="phone" name="phone" type="tel" inputmode="tel" maxlength="20" value="${escapeHtml(state.phone)}" required aria-describedby="phone-note" /></div>
-                  <p class="form-note" id="phone-note">${icon("info")}Только вымышленный номер +992. Не вводите настоящий.</p>
+                  <p class="form-note" id="phone-note">${icon("info")}Оставь этот вымышленный номер +992 или придумай свой. Настоящий не нужен.</p>
                 </div>
                 <div class="field">
                   <label class="field__label" for="amount">Сумма<span class="field__hint">Доступно ${formatMoney(state.victimBalance)} NEX</span></label>
@@ -315,17 +327,17 @@
                 <div class="summary-row"><span>Комиссия</span><strong>0 NEX</strong></div>
                 <div class="summary-row summary-row--total"><span>К переводу</span><strong id="transfer-total">${formatMoney(suggestedAmount)} NEX</strong></div>
               </div>
-              <button class="primary-button primary-button--wide" type="submit" ${state.victimBalance < 100 ? "disabled" : ""}>${icon("lock")}Перевести демо-средства${icon("arrow")}</button>
+              <button class="primary-button primary-button--wide" type="submit" ${state.victimBalance < 100 ? "disabled" : ""}>${icon("lock")}Перевести монетки${icon("arrow")}</button>
             </form>
           </section>
           <aside class="transfer-aside">
             <section class="card recipient-card">
               <div class="recipient-card__avatar">${icon("user")}</div>
-              <h3>Мой демо-кошелёк</h3>
+              <h3>Кошелёк кибер-агента</h3>
               <p id="recipient-preview">${escapeHtml(state.phone)}</p>
-              <span class="recipient-card__badge">${icon("check")}Учебный получатель</span>
+              <span class="recipient-card__badge">${icon("check")}Это ты в нашей игре</span>
             </section>
-            <section class="card demo-notice">${icon("info")}<div><strong>Это не настоящий платёж</strong><p>Номер и сумма остаются в вашем браузере. Никакие деньги не списываются и никуда не отправляются.</p></div></section>
+            <section class="card demo-notice">${icon("info")}<div><strong>Это игровой перевод</strong><p>Монетки просто переместятся внутри страницы. Настоящие деньги и твой номер никуда не отправляются.</p></div></section>
           </aside>
         </div>
       </div>`;
@@ -347,26 +359,26 @@
     const hasMoney = state.studentBalance > 0;
     return `
       <div class="view">
-        <div class="page-heading"><div><h1>Мой профиль</h1><p>Личный кошелёк юного кибер-исследователя.</p></div><span class="mini-badge">Локальный демо-профиль</span></div>
+        <div class="page-heading"><div><h1>Профиль кибер-агента</h1><p>Твой личный кошелёк. Смотри, сколько виртуальных монеток удалось собрать!</p></div><span class="mini-badge">Профиль игрока</span></div>
         <div class="profile-grid">
           <section class="card wallet-card">
             <div class="wallet-card__label">${icon("wallet")}Мой баланс</div>
             <div class="wallet-card__amount">${formatMoney(state.studentBalance)} <small>NEX</small></div>
-            <p>${state.phished ? "Баланс после учебной фишинговой атаки" : "Виртуальные средства · не имеют денежной ценности"}</p>
+            <p>${state.phished ? "Фиши забрала все игровые монетки" : "Игровые монетки · в магазине ими не расплатиться"}</p>
             <div class="wallet-card__bottom"><span>${escapeHtml(state.phone)}</span><span class="wallet-card__status"><span class="status-dot"></span>${state.phished ? "Нужна проверка" : "Активен"}</span></div>
           </section>
           <section class="card identity-card">
-            <div class="avatar avatar--student">YOU</div>
-            <h2>Юный исследователь</h2>
+            <div class="avatar avatar--student">01</div>
+            <h2>Кибер-агент</h2>
             <p>${escapeHtml(state.phone)}</p>
-            <div class="identity-card__badges"><span class="mini-badge">Уровень: новичок</span><span class="mini-badge">NEXA Pay</span></div>
+            <div class="identity-card__badges"><span class="mini-badge">Уровень: исследователь</span><span class="mini-badge">Команда Байта</span></div>
           </section>
         </div>
         ${state.phished ? renderPhishedBanner() : renderPromo(hasMoney)}
         <section class="card profile-history">
           <div class="card-title-row"><h2>Операции кошелька</h2><span class="mini-badge">Мой профиль</span></div>
           <div class="transaction-list">
-            ${state.studentTransactions.length ? state.studentTransactions.map(transactionMarkup).join("") : `<div class="empty-state">Здесь появится ваш первый перевод из демо-банка.</div>`}
+            ${state.studentTransactions.length ? state.studentTransactions.map(transactionMarkup).join("") : `<div class="empty-state">Здесь появятся твои первые монетки из школьного банка.</div>`}
           </div>
         </section>
       </div>`;
@@ -376,9 +388,9 @@
     return `
       <section class="card promo-banner">
         <div class="promo-banner__text">
-          <p class="promo-banner__eyebrow">${icon("sparkles")}NEXA BONUS · ТОЛЬКО СЕГОДНЯ</p>
-          <h2>Секретная акция для своих!</h2>
-          <p>Бонус начислится автоматически. Просто перейдите по ссылке.</p>
+          <p class="promo-banner__eyebrow">${icon("sparkles")}ТОЛЬКО ДЛЯ КИБЕР-АГЕНТОВ · УСПЕЙ СЕГОДНЯ</p>
+          <h2>Хочешь в два раза больше монеток?</h2>
+          <p>Секретный бонус уже ждёт. Просто нажми на ссылку — что может пойти не так?</p>
         </div>
         <div class="promo-banner__action">
           <a class="promo-link" href="#double" data-action="double-balance">${icon("sparkles")}Удвойте свой баланс!${icon("arrow")}</a>
@@ -392,8 +404,8 @@
     return `
       <section class="card phished-banner">
         <div class="phished-banner__icon">${icon("warning")}</div>
-        <div><h2>Акция оказалась фишинговой ловушкой</h2><p>Демо-баланс исчез. Разберите три признака, которые должны были вас насторожить.</p></div>
-        <a class="secondary-button" href="#lesson" data-view="lesson">Разобрать атаку${icon("arrow")}</a>
+        <div><h2>Фиши поймала тебя на крючок!</h2><p>Монетки уплыли, но Байт нашёл три подсказки. Посмотри, где была спрятана ловушка.</p></div>
+        <a class="secondary-button" href="#lesson" data-view="lesson">Найти подсказки${icon("arrow")}</a>
       </section>`;
   }
 
@@ -401,34 +413,34 @@
     return `
       <div class="view">
         <section class="card lesson-hero">
-          <p class="eyebrow">${icon("check")}Миссия завершена · Урок пройден</p>
-          <h1>Вы поймали фишинг.<br>Теперь вы знаете, как он работает.</h1>
-          <p>Мошенники используют любопытство, спешку и обещание лёгкой выгоды. Лучшая защита — остановиться и проверить предложение до перехода по ссылке.</p>
+          <p class="eyebrow">${icon("shield")}Кибер-значок получен · Миссия пройдена</p>
+          <h1>Ты попался на крючок!<br>Зато теперь знаешь секрет Фиши.</h1>
+          <p><b>Фишинг</b> — это когда злодей притворяется другом или знакомым сервисом, чтобы ты сам отдал секретную информацию. Его любимые инструменты: щедрые обещания, спешка и неожиданные ссылки.</p>
           <div class="lesson-result">
-            <div class="lesson-result__item"><span>Баланс до ссылки</span><strong>${formatMoney(state.phishingLoss)} NEX</strong></div>
-            <div class="lesson-result__item lesson-result__item--lost"><span>Баланс после</span><strong>0 NEX</strong></div>
+            <div class="lesson-result__item"><span>Монеток было</span><strong>${formatMoney(state.phishingLoss)} NEX</strong></div>
+            <div class="lesson-result__item lesson-result__item--lost"><span>Фиши оставила</span><strong>0 NEX</strong></div>
           </div>
         </section>
         <div class="clues-grid">
-          <section class="card clue-card"><div class="clue-card__number">01</div><h3>Слишком хорошо, чтобы быть правдой</h3><p>Обещание мгновенно удвоить деньги — классический крючок. Бесплатные бонусы должны вызывать вопросы, а не спешку.</p></section>
-          <section class="card clue-card"><div class="clue-card__number">02</div><h3>Искусственная срочность</h3><p>Таймер и слова «только сегодня» заставляют действовать быстро. Настоящая проверка безопасности не мешает вам подумать.</p></section>
-          <section class="card clue-card"><div class="clue-card__number">03</div><h3>Неожиданная ссылка</h3><p>Не переходите по неожиданным ссылкам. Откройте официальное приложение самостоятельно или спросите взрослого, которому доверяете.</p></section>
+          <section class="card clue-card"><div class="clue-card__number">01</div><h3>Обещание слишком щедрое</h3><p>Удвоить любой баланс одним нажатием? Такое бывает в волшебных сказках, но не в настоящем банке. Если предложение звучит как мечта — проверь его.</p></section>
+          <section class="card clue-card"><div class="clue-card__number">02</div><h3>Тебя специально торопят</h3><p>Таймер кричит: «Быстрее, а то не успеешь!» Это нужно, чтобы ты нажал раньше, чем подумаешь. Кибер-агент не торопится: сначала проверяет, потом действует.</p></section>
+          <section class="card clue-card"><div class="clue-card__number">03</div><h3>Ссылка появилась ниоткуда</h3><p>Не жми на неожиданные ссылки, даже если картинка красивая. Лучше открой официальное приложение сам или спроси взрослого, которому доверяешь.</p></section>
         </div>
         <div class="lesson-bottom">
           <section class="card truth-card">
-            <div class="truth-card__heading">${icon("info")}<h2>Что произошло на самом деле?</h2></div>
-            <p>Здесь клик лишь запускает заранее записанную анимацию. В реальной жизни один клик обычно не опустошает счёт: фишинговый сайт пытается украсть пароль, код подтверждения или активную сессию, либо обманом заставить подтвердить перевод.</p>
-            <p>Никогда не вводите настоящие пароли и коды на подозрительных страницах. Если уже ввели — сразу расскажите взрослому и обратитесь в банк по официальному номеру.</p>
+            <div class="truth-card__heading">${icon("info")}<h2>Что было на самом деле?</h2></div>
+            <p>В нашей игре нажатие просто запускает мультик. В жизни один клик обычно не крадёт деньги сам: злодеи пытаются выманить пароль, код из сообщения или заставить человека подтвердить перевод.</p>
+            <p><b>Правило Байта:</b> остановись, закрой подозрительную страницу и позови взрослого. Если уже успел ввести пароль — скажи об этом сразу. Просить помощь не стыдно, даже кибер-агенты работают командой!</p>
           </section>
           <section class="card password-recap">
-            <div class="password-recap__heading">${icon("lock")}<h2>Не забудьте про пароль</h2></div>
-            <p>Используйте длинную уникальную парольную фразу для каждого аккаунта и включайте двухфакторную аутентификацию.</p>
-            <div class="password-example"><code>admin123</code><span>Слабый и предсказуемый</span></div>
-            <div class="password-example password-example--strong"><code>Луна!Робот!Сок!42</code><span>Длинная фраза · только пример</span></div>
+            <div class="password-recap__heading">${icon("lock")}<h2>Собери секретную суперфразу</h2></div>
+            <p>Вместо короткого пароля придумай длинную фразу с разными словами. Для каждого аккаунта — свою. А второй фактор защиты помогает, даже если пароль узнал злодей.</p>
+            <div class="password-example"><code>admin123</code><span>Угадает даже Фиши</span></div>
+            <div class="password-example password-example--strong"><code>Кот!Ракета!Пицца!42</code><span>Длиннее и лучше · только пример</span></div>
           </section>
         </div>
         <div class="lesson-actions">
-          <button class="secondary-button" type="button" data-action="reset-demo">${icon("refresh")}Пройти миссию заново</button>
+          <button class="secondary-button" type="button" data-action="reset-demo">${icon("refresh")}Сыграть ещё раз</button>
           <a class="primary-button" href="#profile" data-view="profile">Вернуться в профиль${icon("arrow")}</a>
         </div>
       </div>`;
@@ -460,7 +472,7 @@
         <button class="icon-button modal__close" type="button" data-action="close-modal" aria-label="Закрыть">${icon("close")}</button>
         <div class="modal__icon">${icon("shield")}</div>
         <h2 id="info-title">Безопасная учебная симуляция</h2>
-        <p>NEXA — вымышленный банк. Подбор пароля выполняется над локальными данными этой страницы, а переводы существуют только в вашем браузере.</p>
+        <p>NEXA — вымышленный школьный банк. Пароль угадывается только внутри этой страницы, а монетки существуют лишь в твоём браузере. Настоящие сайты мы не трогаем.</p>
         <div class="confirm-receipt">
           <div class="summary-row"><span>Настоящие деньги</span><strong>Нет</strong></div>
           <div class="summary-row"><span>Сбор паролей</span><strong>Нет</strong></div>
@@ -476,12 +488,12 @@
       <section class="modal" role="dialog" aria-modal="true" aria-labelledby="password-title">
         <button class="icon-button modal__close" type="button" data-action="close-modal" aria-label="Закрыть">${icon("close")}</button>
         <div class="modal__icon modal__icon--warning">${icon("lock")}</div>
-        <h2 id="password-title">Почему admin123 подобрали так быстро?</h2>
-        <p>Он короткий, содержит популярное слово и простую последовательность цифр. Автоматические программы пробуют такие комбинации среди первых.</p>
+        <h2 id="password-title">Почему admin123 угадали так быстро?</h2>
+        <p>Он короткий и состоит из популярного слова и цифр по порядку. Программы пробуют такие пароли среди первых — это всё равно что спрятать ключ под ковриком.</p>
         <div class="password-example"><code>admin123</code><span>Слабый</span></div>
-        <div class="password-example password-example--strong"><code>Луна!Робот!Сок!42</code><span>Длинная фраза</span></div>
-        <p>Используйте уникальную парольную фразу для каждого сервиса, менеджер паролей и двухфакторную аутентификацию. Ограничение попыток входа тоже помогает защитить аккаунт.</p>
-        <div class="modal__actions"><button class="primary-button" type="button" data-action="close-modal">Запомню</button></div>
+        <div class="password-example password-example--strong"><code>Кот!Ракета!Пицца!42</code><span>Секретная суперфраза</span></div>
+        <p>Придумай длинную фразу из разных слов и не используй один пароль для всех игр и аккаунтов. Добавь второй фактор защиты — как второй замок на двери.</p>
+        <div class="modal__actions"><button class="primary-button" type="button" data-action="close-modal">Байт, я запомнил!</button></div>
       </section>`);
   }
 
@@ -617,10 +629,10 @@
       <section class="modal success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
         <div class="success-confetti">${confettiPieces()}</div>
         <div class="modal__icon modal__icon--success">${icon("check")}</div>
-        <h2 id="success-title">Перевод выполнен!</h2>
+        <h2 id="success-title">Монетки у тебя!</h2>
         <div class="success-modal__amount">+${formatMoney(transfer.amount)} NEX</div>
-        <p>Средства уже в вашем демо-профиле.</p>
-        <button class="primary-button primary-button--wide" type="button" data-action="transfer-success-profile">Перейти в мой профиль${icon("arrow")}</button>
+        <p>Твой кошелёк кибер-агента пополнен. Байт уже считает монетки!</p>
+        <button class="primary-button primary-button--wide" type="button" data-action="transfer-success-profile">Посмотреть мой баланс${icon("arrow")}</button>
         <p class="success-modal__redirect">Автоматический переход через пару секунд…</p>
       </section>`);
     await wait(reducedMotion ? 400 : 2200);
@@ -675,8 +687,8 @@
         <section class="phishing-stage" id="phishing-stage" aria-live="polite">
           <div class="bonus-loader"><div class="bonus-loader__coin">2×</div></div>
           <p class="phishing-stage__eyebrow">NEXA Bonus · Подключение</p>
-          <h2>Удваиваем ваш баланс…</h2>
-          <p class="phishing-stage__subtitle">Секретный бонус уже почти ваш. Никуда не уходите!</p>
+          <h2>Удваиваем твои монетки…</h2>
+          <p class="phishing-stage__subtitle">Ещё секундочку! Секретный бонус почти в твоём кошельке…</p>
           <div class="bonus-balance"><span id="bonus-balance">${formatMoney(loss)}</span> <small>NEX</small></div>
           <div class="bonus-progress"><span></span></div>
         </section>
@@ -720,16 +732,16 @@
           <circle cx="156" cy="98" r="5" fill="#241b35"/><circle cx="201" cy="96" r="5" fill="#241b35"/>
           <path d="M209 135q25 13 42-7" fill="none" stroke="#44284d" stroke-width="5" stroke-linecap="round"/>
           <path d="M235 121h47v33h-47z" fill="#dfff72" stroke="#829c43" stroke-width="3"/><path d="M250 128v19M267 128v19" stroke="#829c43" stroke-width="3"/>
-          <text x="45" y="30" fill="#d7cce4" font-family="Manrope, sans-serif" font-size="13" font-weight="700">СПАСИБО ЗА NEX!</text>
+          <text x="34" y="30" fill="#d7cce4" font-family="Manrope, sans-serif" font-size="12" font-weight="700">НЯМ! СПАСИБО ЗА МОНЕТКИ!</text>
         </svg>
       </div>
-      <p class="phishing-stage__eyebrow" style="color:#ffafc4">Фишинговая ловушка · Это был розыгрыш</p>
-      <h2>Деньги уплыли!</h2>
-      <p class="phishing-stage__subtitle">Вы нажали на слишком заманчивое предложение. Хитрая рыбка-фишер забрала все виртуальные NEX.</p>
+      <p class="phishing-stage__eyebrow" style="color:#ffafc4">Это была фишинговая ловушка · Фиши довольна</p>
+      <h2>Монетки уплыли!</h2>
+      <p class="phishing-stage__subtitle">Ты нажал на слишком щедрое предложение, и хитрая рыбка Фиши забрала все игровые монетки. Байт уже идёт на помощь!</p>
       <div class="phishing-loss">−${formatMoney(phishingSession.loss)} NEX</div>
-      <div class="phishing-balance">Ваш новый баланс: <strong>0 NEX</strong></div>
-      <button class="primary-button" type="button" data-action="show-lesson">Разобраться, что произошло${icon("arrow")}</button>
-      <div class="phishing-disclaimer">Все средства виртуальные. Настоящие деньги не пострадали.</div>`;
+      <div class="phishing-balance">В твоём кошельке осталось: <strong>0 NEX</strong></div>
+      <button class="primary-button" type="button" data-action="show-lesson">Байт, где нас обманули?${icon("arrow")}</button>
+      <div class="phishing-disclaimer">Не переживай: монетки нарисованные, настоящие деньги в безопасности.</div>`;
     const skip = document.querySelector(".phishing-skip");
     if (skip) skip.remove();
     playPhishSound();
@@ -747,9 +759,9 @@
       <section class="modal" role="dialog" aria-modal="true" aria-labelledby="reset-title">
         <button class="icon-button modal__close" type="button" data-action="close-modal" aria-label="Закрыть">${icon("close")}</button>
         <div class="modal__icon modal__icon--warning">${icon("refresh")}</div>
-        <h2 id="reset-title">Начать миссию заново?</h2>
-        <p>Демо-балансы, переводы и результат фишинга будут сброшены на этом устройстве.</p>
-        <div class="modal__actions"><button class="secondary-button" type="button" data-action="close-modal">Отмена</button><button class="danger-button" type="button" data-action="confirm-reset">Да, начать заново</button></div>
+        <h2 id="reset-title">Сыграть ещё раз?</h2>
+        <p>Байт вернёт все игровые монетки на место, а твой прогресс на этом устройстве начнётся заново.</p>
+        <div class="modal__actions"><button class="secondary-button" type="button" data-action="close-modal">Остаться</button><button class="danger-button" type="button" data-action="confirm-reset">Да, с начала</button></div>
       </section>`);
   }
 
@@ -893,7 +905,7 @@
       case "show-lesson": showLesson(); break;
       case "reset-demo": showResetConfirmation(); break;
       case "confirm-reset": resetDemo(); break;
-      case "notification": showToast("Учебное уведомление: проверьте уровень защиты аккаунта."); break;
+      case "notification": showToast("Байт на связи: придумай длинную суперфразу вместо admin123!"); break;
       default: break;
     }
   });

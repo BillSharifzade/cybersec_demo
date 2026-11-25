@@ -268,6 +268,43 @@ button:disabled {
   margin-top: 32px;
 }
 
+.sidekick {
+  max-width: 520px;
+  margin-top: 27px;
+  padding: 12px 17px 12px 10px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid #3b3656;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sidekick__robot {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.18));
+  animation: robotFloat 3s ease-in-out infinite;
+}
+
+.sidekick strong,
+.sidekick span {
+  display: block;
+}
+
+.sidekick strong {
+  color: #f2efff;
+  font-size: 11px;
+}
+
+.sidekick span {
+  margin-top: 5px;
+  color: #9f99b9;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
 .mission-step {
   padding: 9px 13px;
   display: inline-flex;
@@ -2458,6 +2495,10 @@ button:disabled {
   50% { opacity: 0.45; box-shadow: 0 0 0 7px rgba(223, 255, 114, 0.04); }
 }
 
+@keyframes robotFloat {
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
 @keyframes promoGlow {
   50% { box-shadow: 0 9px 30px rgba(108, 83, 244, 0.3); }
 }
@@ -2577,6 +2618,10 @@ button:disabled {
   .login-hero__content { padding: 55px 0 25px; }
   .login-hero h1 { font-size: 39px; }
   .login-hero__description { font-size: 13px; }
+  .sidekick { padding: 10px 12px 10px 7px; gap: 8px; }
+  .sidekick__robot { width: 60px; height: 60px; }
+  .sidekick strong { font-size: 10px; }
+  .sidekick span { font-size: 9px; }
   .mission-steps { gap: 7px; }
   .mission-step { padding: 7px 9px; font-size: 9px; }
   .login-hero__footer { font-size: 9px; }
