@@ -304,7 +304,7 @@
         <div class="transfer-layout">
           <section class="card transfer-form-card">
             <div class="transfer-form-card__heading"><div class="transaction__icon">${icon("send")}</div><div><h2>Куда отправляем?</h2><p>Мы уже заполнили поля вымышленными данными</p></div></div>
-            <form id="transfer-form">
+            <form id="transfer-form" novalidate>
               <div class="form-grid">
                 <div class="field">
                   <label class="field__label" for="phone">Номер получателя</label>
@@ -313,7 +313,7 @@
                 </div>
                 <div class="field">
                   <label class="field__label" for="amount">Сумма<span class="field__hint">Доступно ${formatMoney(state.victimBalance)} NEX</span></label>
-                  <input class="input input--mono" id="amount" name="amount" type="number" min="100" max="${state.victimBalance}" step="100" value="${suggestedAmount}" required />
+                  <input class="input input--mono" id="amount" name="amount" type="number" inputmode="numeric" min="1" max="${state.victimBalance}" step="1" value="${suggestedAmount}" required />
                   <div class="amount-chips">
                     <button class="amount-chip" type="button" data-action="quick-amount" data-amount="10000">10 000</button>
                     <button class="amount-chip" type="button" data-action="quick-amount" data-amount="25000">25 000</button>
@@ -327,7 +327,7 @@
                 <div class="summary-row"><span>Комиссия</span><strong>0 NEX</strong></div>
                 <div class="summary-row summary-row--total"><span>К переводу</span><strong id="transfer-total">${formatMoney(suggestedAmount)} NEX</strong></div>
               </div>
-              <button class="primary-button primary-button--wide" type="submit" ${state.victimBalance < 100 ? "disabled" : ""}>${icon("lock")}Перевести монетки${icon("arrow")}</button>
+              <button class="primary-button primary-button--wide" type="submit" ${state.victimBalance < 1 ? "disabled" : ""}>${icon("lock")}Перевести монетки${icon("arrow")}</button>
             </form>
           </section>
           <aside class="transfer-aside">
@@ -569,8 +569,8 @@
       form.querySelector("#phone").focus();
       return;
     }
-    if (!Number.isInteger(amount) || amount < 100 || amount > state.victimBalance) {
-      showToast(`Введите целую сумму от 100 до ${formatMoney(state.victimBalance)} NEX.`);
+    if (!Number.isInteger(amount) || amount < 1 || amount > state.victimBalance) {
+      showToast(`Введи целое число монеток: от 1 до ${formatMoney(state.victimBalance)} NEX.`);
       form.querySelector("#amount").focus();
       return;
     }
